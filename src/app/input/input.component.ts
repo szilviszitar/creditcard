@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 
@@ -8,7 +8,11 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./input.component.css']
 })
 export class InputComponent {
-  @Input()
-  control!: FormControl;
+  @Input() control!: FormControl;
+  @Input() label: string | undefined;
 
+
+  showErrors() {
+    return this.control.dirty && this.control.touched && this.control.errors
+  }
 }
